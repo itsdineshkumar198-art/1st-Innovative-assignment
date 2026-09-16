@@ -1,0 +1,201 @@
+A. E-Commerce Product Management
+OBJECTIVE
+
+To develop a Java application for an E-Commerce Product Management System that manages products, customers, and orders using classes, objects, constructors, encapsulation, arrays, and String processing. The program demonstrates storing customer and product information, creating orders, and displaying order details.
+
+SYNTAX OR JAVA CONCEPTS USED
+
+Class Declaration
+
+class ClassName { }
+
+Object Creation
+
+ClassName obj = new ClassName();
+
+Constructor
+
+ClassName(parameters) { }
+
+Encapsulation
+
+private datatype variable;
+public void setVariable() { }
+public datatype getVariable() { }
+
+Array Declaration
+
+DataType arrayName[] = new DataType[size];
+
+String Processing
+
+stringVariable.toUpperCase();
+
+Printing Output
+
+System.out.println();
+ALGORITHM
+
+STEP 1: Create a Product class with private attributes productId, productName, and price.
+
+STEP 2: Use a constructor to initialize the product details.
+
+STEP 3: Create getter methods to access private variables.
+
+STEP 4: Create a Customer class with customerId and customerName.
+
+STEP 5: Initialize customer details using a constructor and provide getter methods.
+
+STEP 6: Create an Order class that stores customer, product array, and quantity array.
+
+STEP 7: Create a constructor in the Order class to initialize all details.
+
+STEP 8: Create a method to display customer information, ordered products, quantities, and total bill.
+
+STEP 9: In the main() method, create product, customer, and order objects.
+
+STEP 10: Call the display method to print the complete order details.
+
+
+
+java code:
+
+// Product Class
+class Product {
+    private int productId;
+    private String productName;
+    private double price;
+
+    // Constructor
+    Product(int productId, String productName, double price) {
+        this.productId = productId;
+        this.productName = productName;
+        this.price = price;
+    }
+
+    // Getter Methods
+    public int getProductId() {
+        return productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
+
+// Customer Class
+class Customer {
+    private int customerId;
+    private String customerName;
+
+    // Constructor
+    Customer(int customerId, String customerName) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+    }
+
+    // Getter Methods
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+}
+
+// Order Class
+class Order {
+    private Customer customer;
+    private Product[] products;
+    private int[] quantity;
+
+    // Constructor
+    Order(Customer customer, Product[] products, int[] quantity) {
+        this.customer = customer;
+        this.products = products;
+        this.quantity = quantity;
+    }
+
+    // Display Order Details
+    void displayOrder() {
+
+        System.out.println("----- E-Commerce Order Details -----");
+
+        // String Processing
+        System.out.println("Customer Name : " +
+                customer.getCustomerName().toUpperCase());
+
+        System.out.println("Customer ID   : " +
+                customer.getCustomerId());
+
+        double total = 0;
+
+        System.out.println("\nProducts Ordered:");
+
+        for (int i = 0; i < products.length; i++) {
+
+            double amount = products[i].getPrice() * quantity[i];
+
+            total += amount;
+
+            System.out.println(products[i].getProductName()
+                    + " | Price: Rs." + products[i].getPrice()
+                    + " | Quantity: " + quantity[i]
+                    + " | Amount: Rs." + amount);
+        }
+
+        System.out.println("\nTotal Bill : Rs." + total);
+    }
+}
+
+// Main Class
+public class EcommerceManagement {
+
+    public static void main(String[] args) {
+
+        // Product Objects
+        Product p1 = new Product(101, "Laptop", 55000);
+        Product p2 = new Product(102, "Wireless Mouse", 1200);
+        Product p3 = new Product(103, "Keyboard", 1800);
+
+        // Customer Object
+        Customer c1 = new Customer(1, "Dinesh Kumar");
+
+        // Arrays
+        Product[] productList = {p1, p2, p3};
+        int[] quantity = {1, 2, 1};
+
+        // Order Object
+        Order order = new Order(c1, productList, quantity);
+
+        // Display Order
+        order.displayOrder();
+    }
+}
+
+
+OUTPUT:
+
+
+----- E-Commerce Order Details -----
+
+Customer Name : DINESH KUMAR
+Customer ID   : 1
+
+Products Ordered:
+
+Laptop | Price: Rs.55000.0 | Quantity: 1 | Amount: Rs.55000.0
+Wireless Mouse | Price: Rs.1200.0 | Quantity: 2 | Amount: Rs.2400.0
+Keyboard | Price: Rs.1800.0 | Quantity: 1 | Amount: Rs.1800.0
+
+Total Bill : Rs.59200.0
+
+
+RESULT
+
+The Java program for E-Commerce Product Management was successfully implemented using classes, objects, constructors, encapsulation, arrays, and String processing. The program stores product and customer details, processes an order, calculates the total bill, and displays the order information successfully.
